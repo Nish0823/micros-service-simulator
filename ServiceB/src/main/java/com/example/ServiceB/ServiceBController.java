@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class ServiceBController
 {
 
-
-
     @GetMapping
     public String hello()
     {

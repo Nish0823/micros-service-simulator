@@ -16,7 +16,7 @@ public class ServiceAController
     @GetMapping
     public String hello()
     {
-        String url = "http://localhost:8080/hello-from/server";
+        String url = "http://producer:8080/hello-from/server";
         return restTemplate.getForObject(url, String.class);
     }
 
