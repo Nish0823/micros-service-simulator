@@ -6,10 +6,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
-@SpringBootApplication
-public class ServiceAApplication {
+import java.io.IOException;
 
-	public static void main(String[] args)
+@SpringBootApplication
+public class ServiceAApplication
+{
+
+
+	public static void main(String[] args)throws InterruptedException, IOException
 	{
 		SpringApplication.run(ServiceAApplication.class, args);
 	}
