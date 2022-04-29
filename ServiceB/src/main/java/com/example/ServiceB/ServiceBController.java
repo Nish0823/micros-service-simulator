@@ -12,6 +12,6 @@ public class ServiceBController
     @GetMapping
     public String hello()
     {
-        return "Hello from Serivce B ";
+        return "Hello from Service B ";
     }
 }
