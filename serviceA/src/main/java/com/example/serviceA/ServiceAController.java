@@ -1,23 +1,27 @@
 package com.example.serviceA;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import io.dapr.client.DaprClient;
+import io.dapr.client.DaprClientBuilder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RequestMapping(value="/helloworld/serviceA")
 public class ServiceAController
 {
-    @Autowired
-    private RestTemplate restTemplate;
+    String TOPIC_NAME = "test";
+    String PUBSUB_NAME = "simulatorpubsub";
 
-    @GetMapping
-    public String hello()
+    //publish a topic in redis pubsub broker
+    @RequestMapping(path = "/hello")
+    public String someMethod()
     {
-        String url = "http://producer:8080/hello-from/server";
-        return restTemplate.getForObject(url, String.class);
-    }
+        String str = "hello";
+        DaprClient client = new DaprClientBuilder().build();
+        client.publishEvent(
+                PUBSUB_NAME,
+                TOPIC_NAME,
+                str).block();
 
+        return "Message Delivered";
+    }
 }
