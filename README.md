@@ -15,10 +15,10 @@ How To:
 NOTE: Theres a docker file in both the folders to play around with as well
 
 
-Service A dapr command : dapr run --app-id service-a --app-port 8080 --dapr-http-port 3500 --components-path ../components -- java -jar target/service-a.jar
+Service A dapr command : dapr run --app-id service-a --app-port 8090 --dapr-http-port 3501 --components-path ../components -- java -jar target/service-a.jar
 
 
-Service B dapr command : dapr run --app-id service-b --app-port 8090 --dapr-http-port 3501 --components-path ../components -- java -jar target/service-b.jar
+Service B dapr command : dapr run --app-id service-b --app-port 8080 --dapr-http-port 3500 --components-path ../components -- java -jar target/service-b.jar
 
 
 Service C dapr command : dapr run --app-id service-c --app-port 8091 --dapr-http-port 3502 --components-path ../components -- java -jar target/service-c.jar
